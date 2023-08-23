@@ -2,6 +2,10 @@
 	font-family: "Linux Libertine";
 	src: url("fonts/LinLibertine_RZ.woff") format('woff');
 }
+.welcometext {
+    font-family: times;
+}
+
 html {
 	font-family: sans-serif;
 	-ms-text-size-adjust: 100%;
@@ -9,6 +13,7 @@ html {
 }
 body {
 	margin: 0;
+	position: relative;
 }
 article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary {
 	display: block;
@@ -95,7 +100,7 @@ button,select {
 	text-transform: none;
 }
 button,html input[type="button"], input[type="reset"],input[type="submit"] {
-	-webkit-appearance: button;
+	-webkit-appearance: button; appearance: button;
 	cursor: pointer;
 }
 button[disabled],html input[disabled] {
@@ -115,13 +120,8 @@ input[type="checkbox"],input[type="radio"] {
 input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button {
 	height: auto;
 }
-input[type="search"] {
-	-webkit-appearance: textfield;
-	box-sizing: content-box;
-}
-input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration {
-	-webkit-appearance: none;
-}
+
+
 fieldset {
 	border: 1px solid #c0c0c0;
 	margin: 0 2px;
@@ -175,12 +175,6 @@ fieldset {
 }
 textarea {
 	resize: vertical;
-}
-.browserupgrade {
-	margin: 0.2em 0;
-	background: #ccc;
-	color: #000;
-	padding: 0.2em 0;
 }
 .hidden {
 	display: none !important;
@@ -283,14 +277,20 @@ h1, h2, h3, h4, h5, h6 {
 	font-size: 1.2em;
 }
 .article p.roleNote {
-	padding: 1em 0 0 1.6em;
+	padding: 1em 1em 1em 1.6em;
 	font-style: italic;
+	background-color: #0646ad0b;
+	width: fit-content;
+	transform: skew(-5deg);
+	transform-origin:bottom;
+
 }
 p.siteSub {
-	font-size: 92%;
+	font-size: 84%;
 }
 body {
 	background: url(img/body-top.png) repeat-x top left #f6f6f6;
+	background-color: rgba(214, 206, 234, 0.788);
 }
 ul {
 	list-style-type: none;
@@ -313,13 +313,18 @@ a:hover {
 	text-decoration: underline;
 }
 .wrapAll {
-	width: 100%.
+	width: 100%;
+
 }
 .sidebar {
 	float: left;
 	width: 9em;
 	padding: 3px 1.5em 10px 1.3em;
-	position: absolute;
+	position: fixed;
+	background-color: rgba(52, 56, 174, 0.157);
+	height: 100vh;
+
+
 }
 .sidebar h3 {
 	font-size: 0.75em;
@@ -351,6 +356,7 @@ div.articleRight {
 	font-size: 94%;
 	margin: 0 0 5px 15px;
 	text-align: left;
+    width:25%;
 }
 div.articleRightInner {
 	border: 1px solid #c8ccd1;
@@ -359,7 +365,9 @@ div.articleRightInner {
 	font-size: 94%;
 	text-align: center;
 	overflow: hidden;
+    object-fit: contain;
 }
+
 .logo {
 	margin-bottom: 20px;
 }
@@ -367,92 +375,16 @@ div.articleRightInner {
 	padding: 0.15em 0 0 0.45em;
 }
 .mainsection {
-	margin: 0 0 0 11em;
+	margin: 0 0 0 10em;
 }
 .headerLinks {
-	text-align: right;
-	padding: 0.8em 1.4em;
+	text-align: left;
 	font-size: 0.72em;
+    padding: 1.1em;
 	color: #777;
 	letter-spacing: 0.017em;
 }
-.headerLinks a{
-	display: inline-block;
-	margin: 0 0 0 0.5em;
-}
-.tabs {
-}
-.tabs ul li a {
-	display: block;
-	background: url(img/blue-gradient.png) bottom left repeat-x transparent;
-	font-size: 0.85em;
-	padding: 1em 0.5em 0;
-	line-height: 2em;
-	position: relative;
-	top: 1px;
-	left: 1px;
-	border-bottom: 1px solid #A7D7F9;
-}
-.tabs ul li a.active {
-	background: #FFF;
-	border-bottom-color: transparent;
-}
-.tabs ul {
-	display: inline-block;
-	background: url(img/tab-separator.png) repeat-x top left transparent;
-	letter-spacing: 0;
-	margin: 0;
-	padding: 0 1px 0 0;
-}
-.tabs ul li {
-	margin: 0;
-	padding: 0;
-	white-space: nowrap;
-	display: inline-block;
-	float: left;
-	margin: 0 1px 0 0px;
-}
-.tabs ul {
-}
-.tabsLeft {
-	line-height: 0;
-	float: left;
-}
-#simpleSearch {
-	margin: 1em 1em 0em 0.5em;
-	display: block;
-	width: 267px;
-	height: 23px;
-	padding: 0 0 0 3px;
-	float: right;
-	overflow: hidden;
-	border: solid 1px #aaa;
-	background: #F6F6F6;
-	background: -moz-linear-gradient(top, #F6F6F6 0%, #FFFFFF 100%);
-	background: -webkit-linear-gradient(top, #F6F6F6 0%, #FFFFFF 100%);
-	background: linear-gradient(to bottom, #F6F6F6 0%, #FFFFFF 100%);
-}
-#searchInput {
-	background: transparent;
-	border: none;
-	vertical-align: top;
-	height: 23px;
-	width: 239px;
-	font-size: 0.8em;
-}
-#submitSearch {
-	background-image: url(img/search.png);
-	display: inline-block;
-	background-position: center center;
-	background-repeat: no-repeat;
-	height: 23px;
-	width: 23px;
-	cursor: pointer;
-}
-.tabsRight {
-	float: right;
-	line-height: 0;
-}
+
 .article {
 	padding: 1.25em 1.5em 1.5em 1.5em;
 	border-left: 1px solid #a7d7f9;
@@ -461,17 +393,13 @@ div.articleRightInner {
 	font-size: 0.875em;
 	border-top: 1px solid #a7d7f9;
 	border-bottom: 1px solid #a7d7f9;
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAC0lEQVQIW2NgAAIAAAUAAR4f7BQAAAAASUVORK5CYII=)
 }
 .article p {
 	line-height: inherit;
-	margin: 0.5em 0;
+
 }
-span.user {
-	background-position: left top;
-	background-repeat: no-repeat;
-	background-image: url(img/user-ico.png);
-	padding-left: 15px !important;
-}
+
 .contentsPanel {
 	border: 1px solid #a2a9b1;
 	background-color: #f8f9fa;
@@ -485,6 +413,7 @@ span.user {
 	font-family: sans-serif;
 	font-weight: bold;
 	text-align: center;
+	
 }
 .hidePanel, .showPanel {
 	float: right;
@@ -499,13 +428,11 @@ span.user {
 	display: inline-block;
 	margin-right: 8px;
 }
-.contentsPanel ul li {
-}
+
 .contentsPanel ul {
 	padding: 0 0 5px 5px;
 }
-.contentsPanel ul li ul{
-}
+
 .contentsPanel ul li ul li {
 	padding: 0 0 0 25px;
 }
@@ -573,22 +500,21 @@ span.user {
 	content: "";
 }
 .pagefooter {
-	padding: 1.5em 1.3em 2em;
+
 	font-size: 75%;
 	line-height: 2em;
+	text-align: right;
+	margin-right: 5em
+
 }
 .pagefooter a {
 	display: inline-block;
 	margin-right: 1em;
 }
-@media screen and (max-width: 850px) {
-	#searchInput {
-		width: 110px;
-	}
-	#simpleSearch {
-		width: 138px;
-	}
-}
+
+  
+
+
 @media screen and (max-width: 700px) {
 	.tabsRight {
 		display: none;
@@ -606,8 +532,48 @@ span.user {
 		width: auto;
 	}
 }
-@media screen and (max-width: 400px) {
-	#simpleSearch {
-		display: none;
-	}
+
+
+
+ /* Style the buttons that are used to open and close the accordion panel */
+ .accordion {
+  background-color: rgb(206, 206, 234);
+  color: black;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  transition: 1.4s; 
+}
+
+
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .accordion:hover {
+  background-color: rgba(76, 0, 130, 0.314);
+  border: 0px;
+}
+
+.accordion-button:not(.collapsed) {
+    color: #0c63e4;
+    background-color: rgba(76, 0, 130, 0.079);
+	
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+    border-color: rgba(0,0,0,.125);
+}
+
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  display: none;
+  overflow: hidden;
+} 
+
+.accordion-item {
+    margin-top: px;
 }
